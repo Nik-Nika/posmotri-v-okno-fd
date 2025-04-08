@@ -9,11 +9,14 @@ html {
 }
 
 .page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
 }
@@ -47,5 +50,243 @@ ol {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
+}
+
+.content {
+  display: grid;
+  align-items: end;
+  grid-template-columns: 711px 399px;
+  gap: 30px;
+}
+
+.result__video-container {
+  position: relative;
+  display: flex;
+  width: 711px;
+  height: 402px;
+}
+
+.result__video {
+  width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form {
+  padding-top: 16px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.search-form__fieldset {
+  border: none;
+}
+
+.search-form__fieldset-title {
+  font-family: "Fira Sans Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+  /* padding-bottom: 5px; */
+}
+
+.search-form__textfield {
+  background-color: transparent;
+  font-family: "Fira Sans Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  min-width: 225px;
+  appearance: none;
+}
+
+.search-form__textfield:focus-visible {
+  outline: none;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+  width: fit-content;
+}
+
+.search-form__pseudo-checkbox {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  vertical-align: middle;
+  border: 1px solid #fff;
+}
+
+.search-form__pseudo-checkox:active {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+}
+
+.search-form__label:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button {
+  background-color: transparent;
+  color: #fff;
+  font-family: "Fira Sans Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  border: 1px solid #fff;
+  min-height: 34px;
+  margin-right: 1.5px;
+}
+
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button:active {
+  text-decoration: none;
+  background-color: #545050;
+}
+
+.title {
+  padding-bottom: 26px;
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 94%;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__list-container {
+  position: relative;
+  min-width: 399px;
+  height: 298px;
+  overflow-y: auto;
+}
+
+.content__list {
+  display: grid;
+  gap: 30px;
+}
+
+.content__list-item {
+  display: block;
+  padding: 0 3px;
+}
+
+.content__list-item:has(:hover) .content__video-card-description-container {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.content__list-item:has(:active) .content__video-card-description-container {
+  text-decoration: none;
+  background-color: #545050;
+}
+
+.content__list-item:focus {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  border-radius: 0%;
+  outline: none;
+}
+
+.content__list-item:focus-visible {
+  border: 1px solid #fff;
+  border-radius: 0%;
+}
+
+.content__card-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.search-form__submit-button {
+  min-width: 194px;
+}
+
+.content__video-card {
+  display: flex;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+}
+
+.content__video-card-title {
+  text-transform: uppercase;
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  width: 196px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content__video-card-description {
+  line-clamp: 1;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-clamp: 16px;
+
+  width: 196px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.more-button {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.error {
+  position: absolute;
 }
