@@ -12,13 +12,13 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  inline-size: 1200px;
-  block-size: 100%;
   margin: auto;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  inline-size: 1200px;
+  block-size: 100%;
 }
 
 h1,
@@ -55,37 +55,40 @@ ol {
 
 .content {
   display: grid;
-  align-items: end;
   grid-template-columns: 711px 399px;
+  align-items: end;
   gap: 30px;
+  max-height: 456px;
 }
 
 .result__video-container {
   position: relative;
-  display: flex;
   width: 711px;
-  height: 402px;
+  height: 386px;
 }
 
 .result__video {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .visually-hidden {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
   clip-path: inset(50%);
   white-space: nowrap;
 }
 
 .search-form {
-  padding-top: 16px;
   display: flex;
-  align-items: end;
   justify-content: space-between;
+  align-items: end;
+  padding-top: 16px;
 }
 
 .search-form__fieldset {
@@ -93,27 +96,27 @@ ol {
 }
 
 .search-form__fieldset-title {
-  font-family: "Fira Sans Condensed";
-  font-style: normal;
+  padding-bottom: 5px;
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 400;
   font-size: 18px;
+  font-style: normal;
   line-height: 22px;
-  color: #fff;
-  /* padding-bottom: 5px; */
 }
 
 .search-form__textfield {
-  background-color: transparent;
-  font-family: "Fira Sans Condensed";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: rgba(255, 255, 255, 0.7);
+  min-width: 225px;
   border: none;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  min-width: 225px;
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 22px;
+  background-color: transparent;
   appearance: none;
 }
 
@@ -129,39 +132,61 @@ ol {
 
 .search-form__pseudo-checkbox {
   display: inline-block;
-  width: 19px;
   height: 19px;
-  vertical-align: middle;
   border: 1px solid #fff;
+  inline-size: 19px;
+}
+
+.search-form__pseudo-checkbox::after {
+  display: block;
+  height: 15px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  inline-size: 15px;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: "";
+  background-color: #fff;
 }
 
 .search-form__pseudo-checkox:active {
   text-decoration: none;
-  cursor: pointer;
   background-color: #fff;
+  cursor: pointer;
+}
+
+.search-form__label:focus {
+  border: none;
+  border-radius: 0%;
+  outline: none;
+  text-decoration: none;
 }
 
 .search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
+  outline: 2px double #fff;
 }
 
-.search-form__label:hover {
+.search-form__label-text {
+  vertical-align: top;
+}
+
+.search-form__label-text:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
 .button {
-  background-color: transparent;
-  color: #fff;
-  font-family: "Fira Sans Condensed";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: center;
-  border: 1px solid #fff;
   min-height: 34px;
   margin-right: 1.5px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 22px;
+  text-align: center;
+  background-color: transparent;
 }
 
 .button:hover {
@@ -174,12 +199,23 @@ ol {
   background-color: #545050;
 }
 
+.button:focus {
+  border: none;
+  border-radius: 0%;
+  outline: none;
+  text-decoration: none;
+}
+
+.button:focus-visible {
+  border: 6px double #fff;
+}
+
 .title {
   padding-bottom: 26px;
-  font-family: "Oswald";
-  font-style: normal;
+  font-family: "Oswald", sans-serif;
   font-weight: 700;
   font-size: 75px;
+  font-style: normal;
   line-height: 94%;
   text-transform: uppercase;
 }
@@ -192,6 +228,7 @@ ol {
   position: relative;
   min-width: 399px;
   height: 298px;
+  overflow-x: hidden;
   overflow-y: auto;
 }
 
@@ -205,32 +242,31 @@ ol {
   padding: 0 3px;
 }
 
-.content__list-item:has(:hover) .content__video-card-description-container {
+.content__card-link:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-.content__list-item:has(:active) .content__video-card-description-container {
-  text-decoration: none;
+.content__card-link:active {
   background-color: #545050;
 }
 
-.content__list-item:focus {
-  text-decoration: none;
-  outline: none;
+.content__card-link:focus {
   border: none;
   border-radius: 0%;
   outline: none;
+  outline: none;
+  text-decoration: none;
 }
 
-.content__list-item:focus-visible {
+.content__card-link:focus-visible {
   border: 1px solid #fff;
-  border-radius: 0%;
 }
 
 .content__card-link {
-  text-decoration: none;
+  display: block;
   color: #fff;
+  text-decoration: none;
 }
 
 .search-form__submit-button {
@@ -246,33 +282,33 @@ ol {
 }
 
 .content__video-card-title {
-  text-transform: uppercase;
-  font-family: "Oswald";
-  font-style: normal;
+
+  max-width: 196px;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: "Oswald", sans-serif;
   font-weight: 700;
   font-size: 30px;
+  font-style: normal;
   line-height: 100%;
   text-transform: uppercase;
-  color: #ffffff;
-
-  width: 196px;
-  white-space: nowrap;
-  overflow: hidden;
+  text-transform: uppercase;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content__video-card-description {
-  line-clamp: 1;
+
+  max-width: 196px;
+  overflow: hidden;
   font-family: "Fira Sans Condensed", sans-serif;
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-clamp: 16px;
-
-  width: 196px;
-  white-space: nowrap;
-  overflow: hidden;
+  font-style: normal;
   text-overflow: ellipsis;
+  line-clamp: 1;
+  line-clamp: 16px;
+  white-space: nowrap;
 }
 
 .content__video-card-thumbnail {
@@ -283,8 +319,8 @@ ol {
 }
 
 .more-button {
-  margin-top: 30px;
   width: 100%;
+  margin-top: 30px;
 }
 
 .error {
