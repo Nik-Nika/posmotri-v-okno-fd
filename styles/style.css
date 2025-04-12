@@ -187,7 +187,6 @@ ol {
 
 .button {
   min-height: 34px;
-  margin-right: 1.5px;
   border: 1px solid #fff;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
@@ -324,6 +323,7 @@ ol {
 
 .more-button {
   width: 100%;
+  min-width: 390px;
   margin-top: 30px;
 }
 
